@@ -1,12 +1,12 @@
 # 期中考
 >
->學號：1234567
+>學號：112111211
 ><br />
->姓名：王小明
+>姓名：吳雨柔
 ><br />
 >作業撰寫時間：180 (mins，包含程式撰寫時間)
 ><br />
->最後撰寫文件日期：2023/09/22
+>最後撰寫文件日期：2024/11/04
 >
 
 本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
@@ -55,21 +55,51 @@ public void mt_getResult(){
 a. 小題
 
 Ans
-
+```py
+map:list[list[chr]]=[['0']*10 for _ in range(10)]
+```
 b. 小題
 
 Ans
+```py
+rowMap:list[int]=[0]*100
+```
 
 c. 小題
 
 Ans
-
+```py
+for a in range(0,10):
+    bomb_indices=int(input())
+    rowMap[bomb_indices]=1
+```
 
 d. 小題
 
 Ans
-
+```py
+for i in range(0, 10):
+    for j in range(0, 10):
+        if rowMap[i * 10 + j]==1:
+            map[i][j]='*'
+```
 
 e. 小題
 
 Ans
+```py
+for i in range(0,10):
+    for j in range(0,10):
+        if map[i][j] != '*':
+            n=0
+            for x in range(max(0,i-1),min(10,i+2)):
+                for y in range(max(0,j-1),min(10,j+2)):
+                    if map[x][y]=='*':
+                        n+=1
+            if n>0:
+                map[i][j]=chr(n+ord('0'))
+            else:
+                map[i][j]=' '
+for row in map:
+    print(' '.join(row))
+```
